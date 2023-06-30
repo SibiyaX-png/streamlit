@@ -202,7 +202,7 @@ def main():
 
 	# Buidling out the "Main" page
 	if selection == "Main":
-		st.title("Techno Sense Classifier:")
+		st.title("App Classifier:")
 		st.image('app.png', use_column_width=False)
 		st.markdown("""
 		Team members:
@@ -298,7 +298,7 @@ def main():
 		
 		st.header('Each model that we use, with their positives and negatives:')
 
-		col1, col2, col3, col4 = st.columns(4)
+		col1, col2, col3 = st.columns(3)
 
 		with col1:
 			st.header('Logistic Regression')
@@ -314,20 +314,8 @@ def main():
 			* The major limitation is the assumption of linearity between the dependent variable and the independent variables.
 			''')
 
-		with col2:
-			st.header('Random Forest Classifier')
-			st.info('''
-			Positives:
-			* Can be used to solve both classification as well as regression problems.
-			* Works well with both categorical and continuous variables.
-			* It creates as many trees on the subset of the data and combines the output of all the trees. In this way it reduces overfitting problem in decision trees and also reduces the variance and therefore improves the accuracy.
-			
-			Negatives:
-			* Complexity is increase because it creates multiple trees and combines their outputs
-			* Training period takes longer because it takes a majority of the votes from the trees
-			''')
 
-		with col3:
+		with col2:
 			st.header('Linear Support Vector Classification')
 			st.info('''
 			Positives:
@@ -341,7 +329,7 @@ def main():
 			* In cases where the number of features for each data point exceeds the number of training data samples, the SVC will underperform.
 			''')
 
-		with col4:
+		with col3:
 			st.header('Naive Bayes Classifier')
 			st.info('''
 			Positives:
@@ -361,11 +349,10 @@ def main():
 
 		tweet_text = st.text_area("Enter Text","Type here")
 		Logistic = ("clf.pkl")
-		Random = ("rfc.pkl")
 		Linear = ('lsvc.pkl')
 		Naive = ('nb.pkl')
 
-		original_list = [Logistic, Random, Linear, Naive]
+		original_list = [Logistic, Linear, Naive]
 		st.info('''
 		Models:
 		* **LogisticRegression Model** = clf.pkl
